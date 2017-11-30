@@ -4,39 +4,6 @@ app.run(function($rootScope) {
 
 });
 
-/*app.factory('MyData', function($websocket) {
-  // Open a WebSocket connection
-  var ws = $websocket('ws://127.0.0.1:80');
-
-  var collection = [];
-
-  ws.onOpen(function() {
-	 console.log("Connected to server");
-	 ws.send(JSON.stringify("Client connected"));
-  });
-
-  ws.onClose(function() {
-	 console.log("Disconnected from server");
-  });
-
-  ws.onError(function() {
-	 console.log("Server error");
-  });
-
-  ws.onMessage(function(message) {
-	 collection.push(JSON.parse(message.data));
-  });
-
-  var methods = {
-	 collection: collection,
-	 get: function() {
-		ws.send(JSON.stringify({ name: name }));
-	 }
-  };
-
-  return methods;
-});*/
-
 app.service('changeClass', function($rootScope) {
 	var id_dot = null;
 	var class_dot = null;
@@ -154,12 +121,7 @@ app.controller('mainCtrl', [ 'MyService', 'changeClass', '$scope', '$http', '$ro
 		}, 100);
 	});
 
-	
-
-
-
-
-	/*$scope.login = function(name) {
+	$scope.login = function(name) { //логирование на 127.0.0.1/
 		var data = {name: name};
 		$http.post('/', data)
 			.then(function(res) {
@@ -172,7 +134,6 @@ app.controller('mainCtrl', [ 'MyService', 'changeClass', '$scope', '$http', '$ro
 					$scope.urname = res.data.newUser;
 				}
 			});
-	}*/
-
+	}
 
 }]);

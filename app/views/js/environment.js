@@ -8,7 +8,6 @@ var dot_status = null;	//статус точки
 var dots_db = [];	//список точек
 var x = 0;
 var y = 0;
-var pparray = [];
 
 var inc_x = 0;
 var inc_y = 0;
@@ -18,14 +17,11 @@ var inc_ = 0;
 var dec_ = 0;
 var def_x = 0;
 var def_y = 0;
-var count = 0;
 var max = 19;
 var min = 0;
 
 var inc_dec = [];
 var new_dots = [];
-
-
 
 module.exports.calc = function(req) {
 
@@ -174,37 +170,15 @@ module.exports.calc = function(req) {
 						console.log("closest dot: ", new_dots[h]);	// позиция соседней точки
 						console.log("author of closest dot: ", dots_db[k].name); // имя автора соседней точки
 						
-						// if (matched_dots_of_one_author[i].closest_dot === new_dots[h]) {
-							if (dots_db[k].name === dots_db[i].name) { //если автор последней точки поставленной на поле === автору соседней точки, записваемв массив
-								matched_dots_of_one_author.push({"closest_dot": new_dots[h], "main_dot": dots_db[i].pos, "author":  dots_db[i].name});
-							}
-							// break;
-						// } else if (JSON.parse(matched_dots_of_one_author[i].closest_dot) !== new_dots[h]) {
-							// if (dots_db[k].name === dots_db[i].name) { //если автор последней точки поставленной на поле === автору соседней точки, записваемв массив
-								// matched_dots_of_one_author.push({"closest_dot": new_dots[h], "main_dot": dots_db[i].pos, "author":  dots_db[i].name});
-							// }
-						// }
-							
-							
-						// }
-						// c++;
-						
-						
+						if (dots_db[k].name === dots_db[i].name) { //если автор последней точки поставленной на поле === автору соседней точки, записваемв массив
+							matched_dots_of_one_author.push({"closest_dot": new_dots[h], "main_dot": dots_db[i].pos, "author":  dots_db[i].name});
+						}	
 					}
 				}
 				
 			}
 		}
-
-
-	console.log("matched_dots_of_one_author: " , matched_dots_of_one_author);
-
-
+		console.log("matched_dots_of_one_author: " , matched_dots_of_one_author);
 	}
-
-
-
-
-
 	return req;
 }

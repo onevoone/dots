@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'views')));//статические 
 var server = http.createServer(app)//создание сервера
 
 //----------- Регистрация при помощи express и использования сессии ------------------//
-/*var dataUser = {};//Вход нового пользователя
+var dataUser = {};//Вход нового пользователя
 app.post("/", jsonParser, function (req, res) {
 	 //проверяем имя новго пользователя
 	dataUser = {"sessionID": req.sessionID, "name": req.body.name};
@@ -24,7 +24,7 @@ app.post("/", jsonParser, function (req, res) {
 			  // createsocket();
 		 // }
 	res.send(checked);
-});*/
+});
 
 const WebSocket = require('ws');	//создание WS
 const wss = new WebSocket.Server({ server });
@@ -46,13 +46,8 @@ wss.on('connection', function connection(ws, req) {
 				var senddata = dotsjs.checkdot(message);	//проверяем точку в БД
 				var envi = environment.calc(message);	//
 				client.send(senddata);
-				// client.send(message);
 			}
 			console.log("request: " + message);
-			
-			// console.log(envi);
-			
-			
 			client.send(message);
 		});
 	});
@@ -62,7 +57,6 @@ wss.on('connection', function connection(ws, req) {
 		console.log('User disconnected');
 	});
 });
-
 
 server.listen(80, '127.0.0.1', function() {
 	console.log('Сервер запущен', server.address().address, ":", server.address().port);
