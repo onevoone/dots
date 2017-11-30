@@ -1,0 +1,12 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div > input {
+	margin-top: 150px;
+}
+
+div[role=alert] {
+	margin-top: 50px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Game</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular-websocket.js"></script>
+	<script type="text/javascript" src='js/main.js'></script>
+
+</head>
+<body>
+	<div class="container" ng-app="points" ng-controller="mainCtrl" ng-cloak>
+	<h1>Точки</h1>
+		
+	<div class="row justify-content-center" ng-if="nameplayer == null">
+		<div class="col-3">
+			<div class='form-group'>
+				<input type='text' class='form-control' ng-model='name' placeholder="Имя" required="">
+			</div>
+			<button class='btn btn-primary btn-sm btn-block' type='submit' ng-disabled="name ? null : true" ng-click="registername(name)">Играть</button>
+		</div>
+	</div>
+
+	<div class="row-dots" ng-if="nameplayer !== null">
+		<p ng-if="nameplayer !== null">Вы вошли как: <b>{{nameplayer}}</b></p>
+		<p>{{turn}}</p>
+		<ul>
+			<li class="dotc" ng-repeat="dot in dotr">
+				<ul ng-repeat="data in dot">
+					<li ng-repeat="dt in data">
+						<div ng-model="dt" class="_dot_empty" id="{{dt.pos}}" ng-click="fillDot($event, dt)" title="{{dt.pos}}"></div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	</div>
+</body>
+</html>

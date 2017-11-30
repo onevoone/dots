@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Menu</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script type="text/javascript" src="libs/angular-websocket.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script> -->
+    <script type="text/javascript" src='js/main.js'></script>
+
+</head>
+<body>
+	<div class="container" ng-app="points" ng-controller="mainCtrl" ng-cloak>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <div class='form-group'>
+                    <input type='text' class='form-control' ng-model='newname' placeholder="Имя" required="">
+                </div>
+                <button class='btn btn-primary btn-sm btn-block' type='submit' ng-disabled="newname ? null : true" ng-click="login(newname)">Играть</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6" ng-if="alertlogin">
+                <div class="alert alert-danger" role="alert">
+                    {{checkLogin}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

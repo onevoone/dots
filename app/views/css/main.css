@@ -1,0 +1,72 @@
+
+.row-dots {
+	margin: 0 auto;
+	padding: 30px 0 0 0;
+	text-align: center;
+}
+
+h1 {
+ text-align: center;
+ padding: 20px 0;
+}
+p {
+	text-align: center;
+	padding: 10px 0;
+}
+
+ul, li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+._dot_empty {
+	margin: 0;
+	padding: 0;
+	height: 17px;
+	width: 17px;
+	background-image: url("../img/plus.png");
+	background-repeat: no-repeat;
+}
+
+._dot_empty_blocked {
+	margin: 0;
+	padding: 0;
+	height: 17px;
+	width: 17px;
+	background-image: url("../img/plus.png");
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+
+.dot_full_blue {
+	margin: 0;
+	padding: 0;
+	height: 17px;
+	width: 17px;
+	background-image: url("../img/plus-full-blue.png");
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+
+.dot_full_red {
+	margin: 0;
+	padding: 0;
+	height: 17px;
+	width: 17px;
+	background-image: url("../img/plus-full-red.png");
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+
+._dot_empty:hover {
+	background-image: url("../img/plus-hover-blue.png");
+}
+
+.dotc {
+	display: inline-block;
+}
+
+.block-click-field {
+	pointer-events: none;
+}
